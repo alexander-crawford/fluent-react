@@ -1,10 +1,10 @@
 # 1 The EntryLevel Stuff 
 
-Debouncing  
-: Delay a functions execution until after a set time has passed since the last event trigger 
+**Debouncing**
+> Delay a functions execution until after a set time has passed since the last event trigger 
 
-Throttling 
-: Limits a function to running at most once every set time interval.
+**Throttling**
+> Limits a function to running at most once every set time interval.
 
 ## UI components 
 - Like a function 
