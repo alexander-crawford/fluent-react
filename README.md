@@ -98,6 +98,107 @@
 ```
 
 # 3 The Virtual DOM 
+
+**Reconciliation**
+> The process of matching changes in the real DOM to match the virtual DOM
+
+## The real DOM
+
+- `document.querySelector` 
+    - Has to search the entire document
+    - Can be time consuming when the document is large and complicated
+    - The selector itself could be complicated to evaluate
+
+- `document.getElementById`
+    - Often more efficient than `document.querySelector` 
+    - IDs are expected to be unique
+
+### Pitfalls of the real DOM
+
+**Layout trashing**
+> Repeated and unnecessary recalculations of a layout
+
+- Performance 
+    - Reading a DOM element's `offsetWidth` property can trigger a recalculation of the layout
+    - `offsetWidth` is a computed value that depends on the layout of the element and its ancestors 
+    - Batching read and writes to layout properties in a function can increase performance 
+    - When accessing layout properties try to retrieve as much information as you need in one go
+    - Calling `appendChild` on a list element results in the whole list being redrawn
+- Cross-browser compatibility 
+    - `SyntheticEvent` is a wrapper for the browsers native events
+    - Certain events might not be available on certain elements, React listens for events at the root level
+    - `SyntheticEvent` normalises events across different input elements 
+    - React still has access to native browser events via `event.native`
+
+### Document fragments 
+
+- Lightweight container that holds DOM nodes
+- Make multiple changes to the fragment before appending it to the DOM
+- The updates from the fragment to the DOM are then batched
+- Avoids style recalculation and script executions 
+
+## How the virtual DOM works
+
+### React elements
+
+Create a react element
+
+``` JavaScript
+    element = React.createElement(
+        'div', 
+        { className : "my-class"},
+        "Hello, world!"
+    );
+```
+
+A React object has several properties 
+
+- `$$typeof` 
+    - Ensure that the object is a valid react element 
+- `type` 
+    - String
+        - Represents a HTML tag time, 'div', 'span', etc ..
+    - Function
+        - Represents a custom React component 
+        - Props are passed to the component 
+- `props` 
+    - List of all the attributes and props that were passed to the component
+- `_owner` 
+    - Used to determine which component created this element
+    - Only accessible in non production builds of React
+- `_store` 
+    - Store additional element information
+    - `_source` which shows the file and line number where the component was created can be used for debugging
+ 
+ > Both `_store` and `_owner`  are internal implementation details and are not apart of the public API
+
+Example of a React element with a custom component type 
+
+``` JavaScript
+    const MyComponent = (props) => {
+        return <div>{props.text)</div>
+    }
+
+    const myElement = <MyComponent text="Hello" />;
+```
+
+The property type of `myElemenet` would be MyComponent 
+
+### Virtual DOM versus the real DOM
+- Both react and the real DOM have a `createElement` function
+- The React function creates new virtual element in memory as does the real DOM's function
+- When a new component is rendered a new virtual DOM tree is created 
+- React then compares the new and old virtual DOM trees in order to work out the updates to apply to the real DOM
+- Virtual elements created by the real DOM's function have to be manually appended to the DOM
+
+### Efficient Updates
+- A new tree of React elements is created when a React component's state or prop changes
+- React's diffing algorithm then finds the differences between the new and old tree
+- The minimum number of updates are then applied to the real DOM to that it matches the new React tree
+
+**Unnecessary re-renders**
+> When a component's state changes, React re-renders the component and all of its descendants
+
 # 4 Inside Reconciliation 
 # 5 Common Questions and Powerful Patterns 
 # 6 ServerSide React 
