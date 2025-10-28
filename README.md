@@ -200,6 +200,37 @@ The property type of `myElemenet` would be MyComponent
 > When a component's state changes, React re-renders the component and all of its descendants
 
 # 4 Inside Reconciliation 
+
+## Understanding reconciliation 
+
+- React component 
+- JSX becomes a react tree of elements 
+- Represent the desired UI state
+- Tree of React elements represents the virtual DOM
+- The tree of React elements it the blueprint and can be reconciled to a number of hosts 
+
+> [React for CLIs](https://github.com/vadimdemedes/ink)
+
+## Batching 
+- Multiple state updates at the same time causing one re-render 
+- A new fork of the vDOM is taken and then all changes made to that vDOM
+- This new vDOM tree is reconciled with the DOM in one update
+
+## Prior art
+
+- Stack reconciler 
+    - Stack based algorithm to compare old and new virtual trees
+    - Updates are executed under the principle Last In First Out (LIFO) 
+    - No way prioritise more important updates 
+
+## The fiber reconciler 
+React’s smart scheduler + data structure that lets rendering be split, paused, and prioritized for smoother, more responsive UIs.
+
+- Double buffering 
+    - Build updates of screen
+    - Swap the update in
+    - No flicker
+
 # 5 Common Questions and Powerful Patterns 
 # 6 ServerSide React 
 # 7 Concurrent React 
