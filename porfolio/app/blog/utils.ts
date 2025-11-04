@@ -77,6 +77,11 @@ export function getExperiencePosts() {
 }
 
 export function formatDate(date: string, includeRelative = false, omitDay = false) {
+
+  if(date === ""){
+      return "Present";
+  }
+
   let currentDate = new Date()
   if (!date.includes('T')) {
     date = `${date}T00:00:00`
