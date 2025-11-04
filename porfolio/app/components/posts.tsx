@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { formatDate, getBlogPosts, getExperiencePosts} from 'app/blog/utils'
 import { LinkIcon } from "app/components/link";
+import { TechList } from "app/components/tech";
 
 export function BlogPosts() {
   let allBlogs = getBlogPosts()
@@ -68,11 +69,7 @@ export function ExperiencePosts() {
                 <span>{post.metadata.company}</span>
                 <LinkIcon href={post.metadata.link} />
               </p>
-              <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
-                {post.metadata.tech.map((item, index) => (
-                  <span>{item} </span>
-                ))}
-              </p>
+              <TechList tech={post.metadata.tech} />
             </div>
             <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
               {post.metadata.summary}
