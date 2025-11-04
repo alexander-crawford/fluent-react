@@ -43,12 +43,16 @@ export function ExperiencePosts() {
     <div>
       {allExperience
         .sort((a, b) => {
-          if (
-            new Date(a.metadata.started) > new Date(b.metadata.started)
-          ) {
-            return -1
-          }
-          return 1
+          const aEnded = a.metadata.ended;
+          const bEnded = b.metadata.ended;
+
+          if (aEnded === '' && bEnded !== '') return -1; 
+          if (aEnded !== '' && bEnded === '') return 1;  
+
+          if (new Date(aEnded) > new Date(bEnded)) return -1;
+          if (new Date(aEnded) < new Date(bEnded)) return 1;
+
+          return 0; 
         })
         .map((post) => (
           <div className="flex flex-col space-y-1 mb-4" >
