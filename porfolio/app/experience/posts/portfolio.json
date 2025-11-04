@@ -3,7 +3,7 @@
     "started" :  "2021-03-01",
     "ended" :  "",
     "company" :  "Project",
-    "summary" :  "",
+    "summary" :  "A portfolio created for me to gain a better understanding of React, Next.js and Tailwind.",
     "tech" : [
         "React",
         "Next.js",
