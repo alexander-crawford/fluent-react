@@ -1,0 +1,13 @@
+{
+    "title" :  "Portfolio",
+    "started" :  "2021-03-01",
+    "ended" :  "",
+    "company" :  "Project",
+    "summary" :  "",
+    "tech" : [
+        "React",
+        "Next.js",
+        "Tailwind"
+    ],
+    "link" : ""
+}

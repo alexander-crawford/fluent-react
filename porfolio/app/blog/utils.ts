@@ -30,9 +30,18 @@ function getMDXFiles(dir) {
   return fs.readdirSync(dir).filter((file) => path.extname(file) === '.mdx')
 }
 
+function getJSONFiles(dir) {
+  return fs.readdirSync(dir).filter((file) => path.extname(file) === '.json')
+}
+
 function readMDXFile(filePath) {
   let rawContent = fs.readFileSync(filePath, 'utf-8')
   return parseFrontmatter(rawContent)
+}
+
+function readJSONFile(filePath) {
+  let rawContent = fs.readFileSync(filePath, 'utf-8')
+  return JSON.parse(rawContent);
 }
 
 function getMDXData(dir) {
@@ -49,12 +58,22 @@ function getMDXData(dir) {
   })
 }
 
+function getJSONData(dir) {
+  let mdxFiles = getJSONFiles(dir)
+  return mdxFiles.map((file) => {
+    let metadata = readJSONFile(path.join(dir, file))
+    return {
+      metadata
+    }
+  })
+}
+
 export function getBlogPosts() {
   return getMDXData(path.join(process.cwd(), 'app', 'blog', 'posts'))
 }
 
 export function getExperiencePosts() {
-  return getMDXData(path.join(process.cwd(), 'app', 'experience', 'posts'))
+  return getJSONData(path.join(process.cwd(), 'app', 'experience', 'posts'))
 }
 
 export function formatDate(date: string, includeRelative = false, omitDay = false) {

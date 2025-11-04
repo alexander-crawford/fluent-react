@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { formatDate, getBlogPosts, getExperiencePosts} from 'app/blog/utils'
+import { LinkIcon } from "app/components/link";
 
 export function BlogPosts() {
   let allBlogs = getBlogPosts()
@@ -36,11 +37,11 @@ export function BlogPosts() {
 }
 
 export function ExperiencePosts() {
-  let allBlogs = getExperiencePosts()
+  let allExperience = getExperiencePosts()
 
   return (
     <div>
-      {allBlogs
+      {allExperience
         .sort((a, b) => {
           if (
             new Date(a.metadata.started) > new Date(b.metadata.started)
@@ -61,6 +62,12 @@ export function ExperiencePosts() {
                 <span>{post.metadata.title}</span>
                 <span> - </span>
                 <span>{post.metadata.company}</span>
+                <LinkIcon href={post.metadata.link} />
+              </p>
+              <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
+                {post.metadata.tech.map((item, index) => (
+                  <span>{item} </span>
+                ))}
               </p>
             </div>
             <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
