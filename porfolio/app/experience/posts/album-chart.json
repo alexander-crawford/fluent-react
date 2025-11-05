@@ -5,8 +5,11 @@
     "company" :  "Project",
     "summary" :  "An album chart created by taking albums from various sources.",
     "tech" : [
-        "Linux",
-        "Bash"
+        "Python",
+        "PHP",
+        "JavaScript",
+        "MySQL",
+        "Apache"
     ],
     "link" : "https://github.com/alexander-crawford/album-chart"
 }

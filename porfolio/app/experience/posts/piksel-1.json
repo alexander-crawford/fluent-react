@@ -5,12 +5,10 @@
     "company" :  "Piksel Produksjoner LTD",
     "summary" :  "Development of software that allows for the control of IOT devices via a VR headset using the WebThings API.",
     "tech" : [
-        "JavaScript",
-        "Linux",
-        "CSS",
-        "HTML",
-        "Ubuntu",
         "Bash",
-        "Git"
+        "Ubuntu",
+        "JavaScript",
+        "CSS",
+        "HTML"
     ]
 }

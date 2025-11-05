@@ -3,11 +3,12 @@
     "started" :  "2021-03-01",
     "ended" :  "",
     "company" :  "Project",
-    "summary" :  "A portfolio created for me to gain a better understanding of React, Next.js and Tailwind.",
+    "summary" :  "A portfolio created for me to gain a better understanding of React, Next.js, Tailwind and TypeScript.",
     "tech" : [
         "React",
         "Next.js",
-        "Tailwind"
+        "Tailwind",
+        "TypeScript"
     ],
     "link" : ""
 }

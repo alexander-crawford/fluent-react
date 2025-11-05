@@ -3,10 +3,10 @@
     "started" :  "2021-10-01",
     "ended" :  "2022-09-01",
     "company" :  "Project",
-    "summary" :  "A web application created to handle the digital distribution of a record label",
+    "summary" :  "Plans for a web application to handle the digital distribution of a record label",
     "tech" : [
-        "UML",
         "PHP",
+        "UML",
         "MySQL"
     ],
     "link" : "https://github.com/alexander-crawford/record-label"

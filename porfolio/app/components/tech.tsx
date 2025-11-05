@@ -1,17 +1,69 @@
 import React from "react";
+import { FaLongArrowAltRight  } from "react-icons/fa";
+import { 
+  SiReact,
+  SiTailwindcss,
+  SiPhp,
+  SiLaravel,
+  SiDocker,
+  SiUml,
+  SiMysql,
+  SiGit,
+  SiJavascript,
+  SiLinux,
+  SiCss,
+  SiHtml5,
+  SiUbuntu,
+  SiGnubash,
+  SiNextdotjs,
+  SiDelphi,
+  SiMarkdown,
+  SiTypescript,
+  SiApache,
+  SiPython
+} from '@icons-pack/react-simple-icons';
 
 type TechListProps = {
   tech: string[];
+};
+
+const TechIcons: Record<string, React.ElementType> = {
+  React: SiReact,
+  "Next.js": SiNextdotjs,
+  Tailwind: SiTailwindcss ,
+  PHP: SiPhp,
+  Laravel: SiLaravel,
+  Docker: SiDocker,
+  UML: SiUml,
+  MySQL: SiMysql,
+  Git: SiGit,
+  JavaScript: SiJavascript,
+  Linux: SiLinux,
+  CSS: SiCss,
+  HTML: SiHtml5,
+  Ubuntu: SiUbuntu,
+  Bash: SiGnubash,
+  Delphi: SiDelphi,
+  Markdown: SiMarkdown,
+  TypeScript: SiTypescript,
+  Apache: SiApache,
+  Python: SiPython
 };
 
 export function TechList({ tech }: TechListProps) {
   if (!tech || tech.length === 0) return null; 
 
   return (
-    <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
-      {tech.map((item, index) => (
-        <span key={index}>{item} </span>
-      ))}
-    </p>
+    <div className="flex flex-wrap items-center gap-2">
+      {tech.map((item, index) => {
+        const Icon = TechIcons[item];
+        return (
+          <div key={index} className="flex items-center gap-1">
+            {Icon ? <Icon className="w-5 h-5 inline-block" color="default"/> : <FaLongArrowAltRight />}
+            <span className="text-neutral-900 dark:text-neutral-100">{item}</span>
+          </div>
+        );
+      })}
+    </div>
   );
 }
