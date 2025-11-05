@@ -50,6 +50,11 @@ const TechIcons: Record<string, React.ElementType> = {
   Python: SiPython
 };
 
+const TechIconColours: Record<string, string> = {
+  "Next.js": "white",
+  Markdown: "white"
+};
+
 export function TechList({ tech }: TechListProps) {
   if (!tech || tech.length === 0) return null; 
 
@@ -57,9 +62,10 @@ export function TechList({ tech }: TechListProps) {
     <div className="flex flex-wrap items-center gap-2">
       {tech.map((item, index) => {
         const Icon = TechIcons[item];
+        const Colour = TechIconColours[item] || 'default';
         return (
           <div key={index} className="flex items-center gap-1">
-            {Icon ? <Icon className="w-5 h-5 inline-block" color="default"/> : <FaLongArrowAltRight />}
+            {Icon ? <Icon className="w-5 h-5 inline-block" color={Colour} /> : <FaLongArrowAltRight />}
             <span className="text-neutral-900 dark:text-neutral-100">{item}</span>
           </div>
         );
