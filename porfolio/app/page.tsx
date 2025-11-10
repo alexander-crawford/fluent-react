@@ -1,17 +1,24 @@
 import { BlogPosts } from 'app/components/posts'
+import { FcAcceptDatabase, FcUp, FcDown } from "react-icons/fc";
+import { NorwayIcon } from 'app/components/norway' 
 
 export default function Page() {
   return (
     <section>
       <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
-        My Portfolio
+        Alexander Crawford
       </h1>
-      <p className="mb-4">
-        {`I'm a Vim enthusiast and tab advocate, finding unmatched efficiency in
-        Vim's keystroke commands and tabs' flexibility for personal viewing
-        preferences. This extends to my support for static typing, where its
-        early error detection ensures cleaner code, and my preference for dark
-        mode, which eases long coding sessions by reducing eye strain.`}
+      <p className="mb-4 flex items-center gap-1">
+        I am a software develop based in Bergen, Norway. <NorwayIcon className="w-10 h-10"/>
+      </p>
+      <p className="mb-4 flex items-center gap-1">
+        I predominately work on full stack web applications. <FcAcceptDatabase className="w-10 h-10"/>
+      </p>
+      <p className="mb-4 flex items-center gap-1">
+        The experience page details my previous projects. <FcUp className="w-10 h-10"/>
+      </p>
+      <p className="mb-4 flex items-center gap-1">
+        The blog page lists all blog posts with the latest posts found below. <FcDown className="w-10 h-10"/>
       </p>
       <div className="my-8">
         <BlogPosts />
