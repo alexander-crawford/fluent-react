@@ -8,8 +8,7 @@
         "PHP",
         "Laravel",
         "PHPUnit",
-        "UML",
-        "MySQL",
-        "Git"
-    ]
+        "MySQL"
+    ],
+    "type" : "WORK"
 }

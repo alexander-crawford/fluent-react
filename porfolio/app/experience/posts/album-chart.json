@@ -8,8 +8,8 @@
         "Python",
         "PHP",
         "JavaScript",
-        "MySQL",
-        "Apache"
+        "MySQL"
     ],
-    "link" : "https://github.com/alexander-crawford/album-chart"
+    "link" : "https://github.com/alexander-crawford/album-chart",
+    "type" : "PROJECT"
 }

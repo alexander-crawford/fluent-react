@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { formatDate, getBlogPosts, getExperiencePosts} from 'app/blog/utils'
-import { LinkIcon } from "app/components/link";
 import { TechList } from "app/components/tech";
+import { Position } from "app/components/position";
 
 export function BlogPosts() {
   let allBlogs = getBlogPosts()
@@ -55,19 +55,18 @@ export function ExperiencePosts() {
 
           return 0; 
         })
-        .map((post) => (
-          <div className="flex flex-col space-y-1 mb-4" >
+        .map((post, index) => (
+          <div key={index} className="flex flex-col space-y-1 mb-4 gap-2" >
             <p className="text-neutral-600 dark:text-neutral-400 w-fit tabular-nums">
               <span>{formatDate(post.metadata.started, false, true)}</span>
               <span> - </span>
               <span>{formatDate(post.metadata.ended, false, true)}</span>
             </p>
-            <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
-              <span>{post.metadata.title}</span>
-              <span> - </span>
-              <span>{post.metadata.company}</span>
-              <LinkIcon href={post.metadata.link} />
-            </p>
+            <Position 
+              title={post.metadata.title} 
+              company={post.metadata.company} 
+              link={post.metadata.link} 
+              type={post.metadata.type} />
             <TechList tech={post.metadata.tech} />
             <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
               {post.metadata.summary}
