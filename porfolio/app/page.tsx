@@ -9,7 +9,7 @@ export default function Page() {
         Alexander Crawford
       </h1>
       <p className="mb-4 flex items-center gap-1">
-        I am a software develop based in Bergen, Norway. <NorwayIcon className="w-10 h-10"/>
+        I am a software developer based in Bergen, Norway. <NorwayIcon className="w-10 h-10"/>
       </p>
       <p className="mb-4 flex items-center gap-1">
         I predominately work on full stack web applications. <FcAcceptDatabase className="w-10 h-10"/>
